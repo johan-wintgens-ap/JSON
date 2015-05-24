@@ -25,7 +25,7 @@
                                 Foreground="Black"
                                 FontSize="14.667"
                                 Stroke="Black">
-                            <ContentPresenter Margin="4" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                            <ContentPresenter Margin="4" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                         </ed:Callout>
                     </ControlTemplate>
                 </Setter.Value>
@@ -75,7 +75,7 @@
             <wpf:Map ZoomLevel="15" x:Name="leMap" CredentialsProvider="AoiBLvTuPRTU_BFOziO2Wet_OlxfQeD3Nj4GopgW7ZXwrMGY5yZNlzHDnFgLfMpX" Mode="Road" Center="{Binding locatie}">
                 <wpf:Pushpin Name="CustomPushpin" Location="{Binding locatie}">
                     <wpf:Pushpin.ToolTip>
-                        <ToolTip Placement="Top" VerticalOffset="20" HorizontalOffset="20" Foreground="Black" >
+                        <ToolTip Name="BalloonTip" Placement="Top" VerticalOffset="20" HorizontalOffset="20" Foreground="Black">
                             <StackPanel>
                                 <TextBlock Text="{Binding naam}" Margin="5" FontWeight="Bold"/>
                                 <DockPanel Margin="5">
