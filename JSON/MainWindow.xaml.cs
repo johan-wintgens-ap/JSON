@@ -49,7 +49,7 @@ namespace JSON_Data
                 }
                 if (unique)
                 {
-                    datum.locatie = new Location(Convert.ToDouble(datum.point_lng), Convert.ToDouble(datum.point_lat));
+                    datum.locatie = new Location(Convert.ToDouble(datum.point_lng.Replace(".", ",")), Convert.ToDouble(datum.point_lat.Replace(".", ",")));
                     RepetitieRuimtes.Add(datum);
                 }
             }
@@ -60,6 +60,7 @@ namespace JSON_Data
         private void dataListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             SummaryGrid.DataContext = MapGrid.DataContext = dataListBox.SelectedItem;
+            leMap.SetView(leMap.BoundingRectangle);
         }
     }
 }

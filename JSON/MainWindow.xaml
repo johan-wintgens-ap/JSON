@@ -42,7 +42,7 @@
             </ListBox>
         </Grid>
         <Grid Grid.Column="1" Name="MapGrid" Margin="5">
-            <wpf:Map x:Name="leMap" CredentialsProvider="AoiBLvTuPRTU_BFOziO2Wet_OlxfQeD3Nj4GopgW7ZXwrMGY5yZNlzHDnFgLfMpX" Mode="Aerial" Center="{Binding locatie}">
+            <wpf:Map ZoomLevel="0" x:Name="leMap" CredentialsProvider="AoiBLvTuPRTU_BFOziO2Wet_OlxfQeD3Nj4GopgW7ZXwrMGY5yZNlzHDnFgLfMpX" Mode="Aerial" Center="{Binding locatie}">
                 <wpf:Pushpin Location="{Binding locatie}"/>
             </wpf:Map>
         </Grid>
