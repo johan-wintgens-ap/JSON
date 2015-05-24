@@ -49,6 +49,7 @@ namespace JSON_Data
                 if (unique)
                     RepetitieRuimtes.Add(datum);
             }
+            dataListBox.ItemsSource = RepetitieRuimtes;
         }
     }
 }
