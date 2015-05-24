@@ -50,6 +50,12 @@ namespace JSON_Data
                     RepetitieRuimtes.Add(datum);
             }
             dataListBox.ItemsSource = RepetitieRuimtes;
+            dataListBox.SelectedIndex = 0;
+        }
+
+        private void dataListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            SummaryGrid.DataContext = dataListBox.SelectedItem;
         }
     }
 }
