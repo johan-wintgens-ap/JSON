@@ -29,6 +29,8 @@ namespace JSON_Data
             InitializeComponent();
         }
 
+        List<JSON.Datum> RepetitieRuimtes = new List<Datum>();
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             string url = "http://datasets.antwerpen.be/v4/gis/repetitieruimteoverzicht.json";
@@ -37,7 +39,6 @@ namespace JSON_Data
             string jsondata = wc.DownloadString(url);
 
             Rootobject data = JsonConvert.DeserializeObject<Rootobject>(jsondata);
-            List<JSON.Datum> RepetitieRuimtes = new List<Datum>();
             bool unique;
             foreach (var datum in data.data)
             {
@@ -49,7 +50,7 @@ namespace JSON_Data
                 }
                 if (unique)
                 {
-                    datum.locatie = new Location(Convert.ToDouble(datum.point_lng.Replace(".", ",")), Convert.ToDouble(datum.point_lat.Replace(".", ",")));
+                    datum.locatie = new Location(Convert.ToDouble(datum.point_lat.Replace(".", ",")), Convert.ToDouble(datum.point_lng.Replace(".", ",")));
                     RepetitieRuimtes.Add(datum);
                 }
             }
@@ -60,7 +61,7 @@ namespace JSON_Data
         private void dataListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             SummaryGrid.DataContext = MapGrid.DataContext = dataListBox.SelectedItem;
-            leMap.SetView(leMap.BoundingRectangle);
+            leMap.Center = RepetitieRuimtes[dataListBox.SelectedIndex].locatie;
         }
     }
 }
