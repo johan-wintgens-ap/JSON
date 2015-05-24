@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using JSON;
+using Microsoft.Maps.MapControl.WPF;
 using Newtonsoft.Json;
 
 namespace JSON_Data
@@ -47,7 +48,10 @@ namespace JSON_Data
                         unique = false;
                 }
                 if (unique)
+                {
+                    datum.locatie = new Location(Convert.ToDouble(datum.point_lng), Convert.ToDouble(datum.point_lat));
                     RepetitieRuimtes.Add(datum);
+                }
             }
             dataListBox.ItemsSource = RepetitieRuimtes;
             dataListBox.SelectedIndex = 0;
@@ -55,7 +59,7 @@ namespace JSON_Data
 
         private void dataListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            SummaryGrid.DataContext = dataListBox.SelectedItem;
+            SummaryGrid.DataContext = MapGrid.DataContext = dataListBox.SelectedItem;
         }
     }
 }

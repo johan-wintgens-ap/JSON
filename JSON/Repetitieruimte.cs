@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Maps.MapControl.WPF;
 
 namespace JSON
 {
@@ -49,5 +50,6 @@ namespace JSON
         public object groep_6tot11jaar { get; set; }
         public object groep_12tot17jaar { get; set; }
         public object groep_18plus { get; set; }
+        public Location locatie { get; set; }
     }
 }

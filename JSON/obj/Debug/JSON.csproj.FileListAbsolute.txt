@@ -13,3 +13,5 @@ C:\Users\Johan\Dropbox\Artesis\Anno 2014 - 2015\Semester 2\Labo Softwareontwikke
 C:\Users\Johan\Dropbox\Artesis\Anno 2014 - 2015\Semester 2\Labo Softwareontwikkeling 4\Week 10\JSON\JSON\obj\Debug\JSON.csproj.GenerateResource.Cache
 C:\Users\Johan\Dropbox\Artesis\Anno 2014 - 2015\Semester 2\Labo Softwareontwikkeling 4\Week 10\JSON\JSON\obj\Debug\JSON.exe
 C:\Users\Johan\Dropbox\Artesis\Anno 2014 - 2015\Semester 2\Labo Softwareontwikkeling 4\Week 10\JSON\JSON\obj\Debug\JSON.pdb
+C:\Users\Johan\Dropbox\Artesis\Anno 2014 - 2015\Semester 2\Labo Softwareontwikkeling 4\Week 10\JSON\JSON\bin\Debug\Microsoft.Maps.MapControl.WPF.dll
+C:\Users\Johan\Dropbox\Artesis\Anno 2014 - 2015\Semester 2\Labo Softwareontwikkeling 4\Week 10\JSON\JSON\bin\Debug\Microsoft.Maps.MapControl.WPF.xml
