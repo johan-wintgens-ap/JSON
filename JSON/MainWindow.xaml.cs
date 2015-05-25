@@ -16,6 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using JSON;
+using MahApps.Metro.Controls;
 using Microsoft.Maps.MapControl.WPF;
 using Newtonsoft.Json;
 
@@ -24,7 +25,7 @@ namespace JSON_Data
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : MetroWindow
     {
         public MainWindow()
         {
