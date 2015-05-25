@@ -40,11 +40,20 @@
 
         <Grid Name="ListGrid">
             <Grid.RowDefinitions>
+                <RowDefinition Height="0.2*"/>
                 <RowDefinition Height="2*"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
+            
+            <DockPanel>
+                <ComboBox SelectedIndex="0" Name="FilterBox">
+                    <ComboBoxItem Content="NAAM"/>
+                    <ComboBoxItem Content="PLAATS"/>
+                </ComboBox>
+                <TextBox Name="SearchBox" TextChanged="SearchBox_TextChanged"/>
+            </DockPanel>
 
-            <Grid Margin="5" Grid.Row="1" Name="SummaryGrid">
+            <Grid Margin="5" Grid.Row="2" Name="SummaryGrid">
                 <Viewbox HorizontalAlignment="Left" VerticalAlignment="Top">
                 <StackPanel>
                 <TextBlock Text="{Binding naam}" Margin="5" FontWeight="Bold"/>
@@ -62,7 +71,7 @@
                 </Viewbox>
             </Grid>
 
-            <ListBox Margin="5" Name="dataListBox" SelectionChanged="dataListBox_SelectionChanged" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <ListBox Grid.Row="1" Margin="5" Name="dataListBox" SelectionChanged="dataListBox_SelectionChanged" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Text="{Binding naam}"/>
