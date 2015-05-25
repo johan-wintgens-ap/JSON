@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -31,6 +32,7 @@ namespace JSON_Data
         }
 
         ObservableCollection<JSON.Datum> RepetitieRuimtes = new ObservableCollection<Datum>();
+        private IEnumerable<JSON.Datum> _linqRes;
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -61,13 +63,35 @@ namespace JSON_Data
 
         private void dataListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            SummaryGrid.DataContext = MapGrid.DataContext = dataListBox.SelectedItem;
-            leMap.Center = RepetitieRuimtes[dataListBox.SelectedIndex].locatie;
+            if (dataListBox.SelectedItem != null)
+            {
+                SummaryGrid.DataContext = MapGrid.DataContext = dataListBox.SelectedItem;
+                Datum t = new Datum();
+                t = (Datum)dataListBox.SelectedItem;
+                leMap.Center = t.locatie;
+            }
         }
 
         private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            if (SearchBox.Text != "")
+            {
+                switch (FilterBox.SelectedIndex)
+                {
+                    case 0:
+                        _linqRes = RepetitieRuimtes.Where(r => r.naam.ToLower().Contains(SearchBox.Text.ToLower()));
+                        break;
+                    case 1:
+                        _linqRes = RepetitieRuimtes.Where(r => r.district.ToLower().Contains(SearchBox.Text.ToLower()));
+                        break;
+                }
+                dataListBox.ItemsSource = _linqRes;
+            }
+            else
+                dataListBox.ItemsSource = RepetitieRuimtes;
+            
+            if (dataListBox.Items.Count != 0)
+                dataListBox.SelectedIndex = 0;
         }
     }
 }
