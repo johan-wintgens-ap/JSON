@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -29,7 +30,7 @@ namespace JSON_Data
             InitializeComponent();
         }
 
-        List<JSON.Datum> RepetitieRuimtes = new List<Datum>();
+        ObservableCollection<JSON.Datum> RepetitieRuimtes = new ObservableCollection<Datum>();
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
