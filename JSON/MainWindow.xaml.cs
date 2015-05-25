@@ -64,5 +64,10 @@ namespace JSON_Data
             SummaryGrid.DataContext = MapGrid.DataContext = dataListBox.SelectedItem;
             leMap.Center = RepetitieRuimtes[dataListBox.SelectedIndex].locatie;
         }
+
+        private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
