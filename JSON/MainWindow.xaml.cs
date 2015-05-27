@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics.CodeAnalysis;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -34,15 +35,38 @@ namespace JSON_Data
 
         ObservableCollection<JSON.Datum> RepetitieRuimtes = new ObservableCollection<Datum>();
         private IEnumerable<JSON.Datum> _linqRes;
+        WebClient wc = new WebClient();
+        string filePath = Environment.CurrentDirectory + @"\JSONdata.json";
+        string url = "http://datasets.antwerpen.be/v4/gis/repetitieruimteoverzicht.json";
+        private Rootobject data;
+        private string jsondata;
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            string url = "http://datasets.antwerpen.be/v4/gis/repetitieruimteoverzicht.json";
+            try
+            {
+                DownloadJSONdata();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Download failed and local content not found");
+            }
+            dataListBox.ItemsSource = RepetitieRuimtes;
+        }
 
-            WebClient wc = new WebClient();
-            string jsondata = wc.DownloadString(url);
+        void DownloadJSONdata()
+        {
+            if (File.Exists(filePath))
+            {
+                jsondata = File.ReadAllText(filePath);
+            }
+            else
+            {
+                jsondata = wc.DownloadString(url);
+                File.WriteAllText(filePath, jsondata);
+            }
+            data = JsonConvert.DeserializeObject<Rootobject>(jsondata);
 
-            Rootobject data = JsonConvert.DeserializeObject<Rootobject>(jsondata);
             bool unique;
             foreach (var datum in data.data)
             {
@@ -58,8 +82,6 @@ namespace JSON_Data
                     RepetitieRuimtes.Add(datum);
                 }
             }
-            dataListBox.ItemsSource = RepetitieRuimtes;
-            dataListBox.SelectedIndex = 0;
         }
 
         private void dataListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
