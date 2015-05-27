@@ -33,8 +33,8 @@ namespace JSON_Data
             InitializeComponent();
         }
 
-        ObservableCollection<JSON.Datum> RepetitieRuimtes = new ObservableCollection<Datum>();
-        private IEnumerable<JSON.Datum> _linqRes;
+        ObservableCollection<Datum> RepetitieRuimtes = new ObservableCollection<Datum>();
+        private IEnumerable<Datum> _linqRes;
         WebClient wc = new WebClient();
         string filePath = Environment.CurrentDirectory + @"\JSONdata.json";
         string url = "http://datasets.antwerpen.be/v4/gis/repetitieruimteoverzicht.json";
