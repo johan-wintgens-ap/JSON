@@ -7,7 +7,7 @@
         Title="Repetitieruimtes Antwerpen" Height="500" Width="800" Loaded="Window_Loaded" BorderThickness="1" BorderBrush="#333333">
     <Window.Resources>
 
-        <Style x:Key="{x:Type ToolTip}" TargetType="ToolTip">
+        <Style TargetType="ToolTip">
             <Setter Property="OverridesDefaultStyle" Value="true" />
             <Setter Property="HasDropShadow" Value="True" />
             <Setter Property="Template">
@@ -72,7 +72,7 @@
                 </Viewbox>
             </Grid>
 
-            <ListBox Grid.Row="1" Margin="5" Name="dataListBox" SelectionChanged="dataListBox_SelectionChanged" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <ListBox SelectedIndex="0" Grid.Row="1" Margin="5" Name="dataListBox" SelectionChanged="dataListBox_SelectionChanged" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Text="{Binding naam}"/>
